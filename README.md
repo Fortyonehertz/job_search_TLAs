@@ -1,6 +1,20 @@
 # job_search_TLAs
 Python script that creates a histogram of the Three Letter Acronyms (TLAs) found in the text of job postings on Seek.com.au
 
+## Examples
+### TLAs in Top 5 Pages
+#### Web Developer:
+![Web Developer TLAs](https://github.com/Fortyonehertz/job_search_TLAs/examples/web_developer_5_pages.png "Web Developer TLAs")
+
+#### Data Science:
+![Data Science TLAs](https://github.com/Fortyonehertz/job_search_TLAs/examples/data_science_5_pages.png "Data Science TLAs")
+
+#### Business Analyst
+![Business Analyst TLAs](https://github.com/Fortyonehertz/job_search_TLAs/examples/business_analyst_5_pages.png "Business Analyst TLAs")
+
+#### Software Engineer
+![Software Engineer TLAs](https://github.com/Fortyonehertz/job_search_TLAs/examples/software_engineer_5_pages.png "Software Engineer TLAs")
+
 ## Setup
 (Requires python3) 
 
