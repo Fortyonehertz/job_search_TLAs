@@ -48,6 +48,7 @@ if __name__ == "__main__":
     search_terms = args.search
     search_terms.append('jobs')
     search_terms = '-'.join(search_terms)
-    print('Searching for ', search_terms)
+    print('Searching for', search_terms)
     histo = create_histo(search_terms, args.pages)
+    print('Navigate Histogram by calling \'histo\'')
     code.interact(local=locals())
