@@ -1,9 +1,8 @@
-import requests
-import code
 import re
-from bs4 import BeautifulSoup
-import sys
+import code
 import argparse
+import requests
+from bs4 import BeautifulSoup
 
 def add_or_inc_dict(tla, dict):
     try:
@@ -12,20 +11,16 @@ def add_or_inc_dict(tla, dict):
         dict[tla] = 1
 
 def create_histo(search_terms, max_pages):
-    responses = []
     tla_histo = {}
     page = 1
     while page <= max_pages:
         try:
             res = requests.get('https://www.seek.com.au/' + search_terms + '?page=' + str(page))
             soup = BeautifulSoup(res.text, features="html.parser")
-            jobs_found = int(soup.find('strong', {'data-automation': 'totalJobsCount'}).get_text().replace(',', ''))
-            if jobs_found < 1:
+            jobs_on_page = bool(int(soup.find('strong', {'data-automation': 'totalJobsCount'}).get_text().replace(',', '')))
+            if not jobs_on_page:
                 break
-            divs = soup.findAll('article')
-            jobs = []
-            for div in divs:
-                jobs.append(div.findAll('a', href=True)[0].get('href'))
+            jobs = [article.findAll('a', href=True)[0].get('href') for article in soup.findAll('article')]
             print('Jobs found on page %i: %i' % (page, len(jobs)))
             for job in jobs:
                 res = BeautifulSoup(requests.get('https://www.seek.com.au'+job).text, features='html.parser')
