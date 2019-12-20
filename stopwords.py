@@ -7,5 +7,16 @@ stops = [
     'TAS',
     'ACT',
     'VIC',
-    'NOW'
+    'NOW',
+    'THE',
+    'NOT',
+    'HOW',
+    'FOR',
+    'WHY',
+    'KEY',
+    'CEO',
+    'CTO',
+    'CFO',
+    'MAY',
+    'PST'
 ]
