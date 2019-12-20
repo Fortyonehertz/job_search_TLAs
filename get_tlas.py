@@ -41,7 +41,7 @@ def create_histo(search_terms, max_pages):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser('Job Posting TLAs', add_help=True)
+    parser = argparse.ArgumentParser('get_tlas.py', add_help=True, description='Creates a histogram of Three Letter Acronyms (TLAs) used in job postings that match the provided search terms by crawling Seek.com.au')
     parser.add_argument('-s', nargs='*', dest='search', required=True, default='software developer', help='job search terms you\'d like to find TLAs for')
     parser.add_argument('-p', dest='pages', type=int, required=True, default=999, help='number of job listing pages to search')
     args = parser.parse_args()
