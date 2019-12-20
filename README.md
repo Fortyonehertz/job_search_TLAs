@@ -4,16 +4,16 @@ Python script that creates a histogram of the Three Letter Acronyms (TLAs) found
 ## Examples
 ### TLAs in Top 5 Pages
 #### Web Developer:
-![Web Developer TLAs](https://github.com/Fortyonehertz/job_search_TLAs/examples/web_developer_5_pages.png "Web Developer TLAs")
+![Web Developer TLAs](https://raw.githubusercontent.com/Fortyonehertz/job_search_TLAs/master/examples/web_developer_5_pages.png "Web Developer TLAs")
 
 #### Data Science:
-![Data Science TLAs](https://github.com/Fortyonehertz/job_search_TLAs/examples/data_science_5_pages.png "Data Science TLAs")
+![Data Science TLAs](https://raw.githubusercontent.com/Fortyonehertz/job_search_TLAs/master/examples/data_science_5_pages.png "Data Science TLAs")
 
 #### Business Analyst
-![Business Analyst TLAs](https://github.com/Fortyonehertz/job_search_TLAs/examples/business_analyst_5_pages.png "Business Analyst TLAs")
+![Business Analyst TLAs](https://raw.githubusercontent.com/Fortyonehertz/job_search_TLAs/master/examples/business_analyst_5_pages.png "Business Analyst TLAs")
 
 #### Software Engineer
-![Software Engineer TLAs](https://github.com/Fortyonehertz/job_search_TLAs/examples/software_engineer_5_pages.png "Software Engineer TLAs")
+![Software Engineer TLAs](https://raw.githubusercontent.com/Fortyonehertz/job_search_TLAs/master/examples/software_engineer_5_pages.png "Software Engineer TLAs")
 
 ## Setup
 (Requires python3) 
