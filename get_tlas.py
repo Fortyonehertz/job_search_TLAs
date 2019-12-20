@@ -15,7 +15,10 @@ def create_histo(search_terms, max_pages):
     page = 1
     while page <= max_pages:
         try:
-            res = requests.get('https://www.seek.com.au/' + search_terms + '?page=' + str(page))
+            res = requests.get('https://www.seek.com.au/jobs?keywords=' + search_terms + '&page=' + str(page))
+            if res.status_code != 200:
+                print('Search terms could not be used to create a valid search url.')
+                break
             soup = BeautifulSoup(res.text, features="html.parser")
             jobs_on_page = bool(int(soup.find('strong', {'data-automation': 'totalJobsCount'}).get_text().replace(',', '')))
             if not jobs_on_page:
@@ -43,8 +46,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     search_terms = args.search
     print('Searching for', search_terms)
-    search_terms.append('jobs')
-    search_terms = '-'.join(search_terms)
+    search_terms = ' '.join(search_terms)
     histo = create_histo(search_terms, args.pages)
     if histo:
         print('Navigate Histogram by calling \'histo\'')
