@@ -1,5 +1,5 @@
 # job_search_TLAs
-Python script that creates a histogram of the Three Letter Acronyms (TLAs) found in the text of job postings on Seek.com.au
+Python script that creates word clouds and histograms of the Three Letter Acronyms (TLAs) found in the text of job postings on Seek.com.au
 
 ## Examples
 ### TLAs in Top 5 Pages
@@ -27,8 +27,6 @@ To run the script, use the command:
 
 ```python3 get_tlas.py -s <Your search terms> -p <number of listing pages you want to crawl>```
 
-At the moment, the script creates the 'histo' object and enters interactive mode to allow the user to inspect the histogram. This will be updated to save a 'word cloud' to a specified output.
-
 
 ```
 usage: get_tlas.py [-h] -s [SEARCH [SEARCH ...]] -p PAGES
@@ -39,9 +37,11 @@ Seek.com.au
                                                             
 optional arguments:
     -h, --help          show this help message and exit
+    -o OUTPUT           output file for wordcloud
 
 required arguments:
     -s [SEARCH ...]     job search terms you'd like to 
                         find TLAs for
     -p PAGES            number of job listing pages to search
+    
 ```
