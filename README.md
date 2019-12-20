@@ -1,6 +1,18 @@
 # job_search_TLAs
 Python script that creates a histogram of the Three Letter Acronyms (TLAs) found in the text of job postings on Seek.com.au
 
+## Setup
+(Requires python3) 
+
+Simply cd into the cloned repo and install requirements using the command:
+
+```pip3 install -r requirements.txt```
+
+## Usage
+To run the script, use the command:
+
+```python3 get_tlas.py -s <Your search terms> -p <number of listing pages you want to crawl>```
+
 At the moment, the script creates the 'histo' object and enters interactive mode to allow the user to inspect the histogram. This will be updated to save a 'word cloud' to a specified output.
 
 
