@@ -15,10 +15,15 @@ def create_histo(search_terms, max_pages):
     page = 1
     while page <= max_pages:
         try:
-            res = requests.get('https://www.seek.com.au/' + search_terms + '?page=' + str(page))
+            res = requests.get('https://www.seek.com.au/jobs?keywords=' + search_terms + '&page=' + str(page))
+            if res.status_code != 200:
+                print('Search terms could not be used to create a valid search url.')
+                break
             soup = BeautifulSoup(res.text, features="html.parser")
             jobs_on_page = bool(int(soup.find('strong', {'data-automation': 'totalJobsCount'}).get_text().replace(',', '')))
             if not jobs_on_page:
+                if page==1:
+                    print('No job postings were found with the search terms: %s' % search_terms[0:len(search_terms)-4].replace('-', ' '))
                 break
             jobs = [article.findAll('a', href=True)[0].get('href') for article in soup.findAll('article')]
             print('Jobs found on page %i: %i' % (page, len(jobs)))
@@ -29,11 +34,10 @@ def create_histo(search_terms, max_pages):
                 for tla in tlas:
                     add_or_inc_dict(tla, tla_histo)
             page += 1
-        except:
+        except Exception as e:
+            print(e)
             break
     return tla_histo
-
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser('get_tlas.py', add_help=True, description='Creates a histogram of Three Letter Acronyms (TLAs) used in job postings that match the provided search terms by crawling Seek.com.au')
@@ -41,9 +45,10 @@ if __name__ == "__main__":
     parser.add_argument('-p', dest='pages', type=int, required=True, default=999, help='number of job listing pages to search')
     args = parser.parse_args()
     search_terms = args.search
-    search_terms.append('jobs')
-    search_terms = '-'.join(search_terms)
     print('Searching for', search_terms)
+    search_terms = ' '.join(search_terms)
     histo = create_histo(search_terms, args.pages)
-    print('Navigate Histogram by calling \'histo\'')
-    code.interact(local=locals())
+    if histo:
+        print('Navigate Histogram by calling \'histo\'')
+        code.interact(local=locals())
+    
